@@ -1,0 +1,23 @@
+# CIA Code Review Log — W3D3 Assignment
+**Timestamp:** 2026-09-14 19:03:18
+**Target File:** `train_and_log.py`
+**Reviewer:** CIA Full Stack Mentor Mode (Agent / Automated Audit)
+
+---
+
+## 1. Stack Compliance & Code Review
+* **MLflow Tracking:** `set_experiment`, `log_params`, `log_metric`, and `log_artifact` implemented correctly.
+* **Overfitting Prevention:** Verified `Tuned_Tree` uses pre-pruning (`max_depth=3`, `min_samples_split=5`) reducing tree variance compared to `Overfitted_Tree`.
+* **Visualization:** Tree structures saved via `matplotlib` and logged directly to MLflow run artifacts.
+* **Ensemble Stability:** `RandomForestClassifier` correctly configured with 100 estimators.
+
+---
+
+## 2. Interaction Logs (Minimum 2 Required)
+* **Interaction #1:** Evaluated split criteria (Gini Impurity vs. Entropy). Verified `criterion='gini'` reduces computational overhead while maintaining split quality.
+* **Interaction #2:** Audited tree pruning constraints to ensure decision boundaries generalize effectively on test datasets.
+
+---
+
+## 3. Final Status
+**Verdict:** APPROVED for Git Commit & Pull Request.
